@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScoreKeeper : MonoBehaviour {
 
-    public int score = 0;
+    public int attempts = 1;
 
     // Use this for initialization
     void Start()
@@ -11,17 +11,11 @@ public class ScoreKeeper : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void IncrementAttempts(int amount)
     {
 
-    }
-
-    public void IncrementScore(int amount)
-    {
-
-        score += amount;
-        AudioSource source = GetComponent<AudioSource>();
-        source.Play();
+        attempts += amount;
+        // AudioSource source = GetComponent<AudioSource>();
+        // source.Play();
     }
 }

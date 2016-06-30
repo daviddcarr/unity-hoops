@@ -3,14 +3,14 @@ using System.Collections;
 
 public class ScoreAbsorber : MonoBehaviour {
 
-	public int score;
+	public int attempts;
 
 	// Use this for initialization
 	void Start () {
 		ScoreKeeper oldKeeper = FindObjectOfType<ScoreKeeper> ();
-		score = 1;
+		attempts = 1;
 		if (oldKeeper) {
-			score = oldKeeper.score;
+			attempts = oldKeeper.attempts;
 			Destroy (oldKeeper.gameObject);
 		}
 	}

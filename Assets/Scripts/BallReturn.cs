@@ -25,6 +25,9 @@ public class BallReturn : MonoBehaviour {
             sphere.transform.position = new Vector3(0.0f, 0.893f, 0.546f);
             sphere.GetComponent<Rigidbody>().velocity = Vector3.zero;
             sphere.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+            ScoreKeeper scoreKeeper = FindObjectOfType<ScoreKeeper>();
+            scoreKeeper.IncrementAttempts(1);
         }
     }
 }

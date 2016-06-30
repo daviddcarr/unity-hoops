@@ -15,6 +15,6 @@ public class InterimScoreDisplay : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		text.text = "SCORE: " + scoreAbsorber.score;
+		text.text = scoreAbsorber.attempts + " ATTEMPTS MADE";
 	}
 }

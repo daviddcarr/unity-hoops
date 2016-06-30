@@ -4,7 +4,7 @@ using System.Collections;
 public class SecondaryTrigger : MonoBehaviour {
 
     Collider expectedCollider;
-    public int scorePerHoop = 1;
+    public int nextLevelDelay = 1;
 
     public void ExpectCollider(Collider collider)
     {
@@ -15,8 +15,14 @@ public class SecondaryTrigger : MonoBehaviour {
     {
         if (otherCollider == expectedCollider)
         {
-            ScoreKeeper scoreKeeper = FindObjectOfType<ScoreKeeper>();
-            scoreKeeper.IncrementScore(scorePerHoop);
+            StartCoroutine(loadSceneTask());
         }
+    }
+
+    IEnumerator loadSceneTask()
+    {
+        yield return new WaitForSeconds(nextLevelDelay);
+        LevelManager levelManager = FindObjectOfType<LevelManager>();
+        levelManager.LoadNextScene();
     }
 }
